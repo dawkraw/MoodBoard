@@ -1,0 +1,7 @@
+.ng-valid {
+  @apply border-gray-500;
+}
+
+.ng-invalid {
+  @apply border-gray-500;
+}

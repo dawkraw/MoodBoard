@@ -1,0 +1,17 @@
+<div class="flex fixed inset-0 z-50 overflow-auto">
+  <div class="p-4 bg-zinc-700 m-auto rounded shadow-xl w-full max-w-xl">
+    <div class="flex justify-between">
+      <p class="text-lg font-bold leading-6 text-white capitalize">{{this.title}}</p>
+      <button (click)="close()" class="ml-2" title="Close">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd"
+                d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                fill-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>
+
+<div class="fixed inset-0 bg-zinc-800 bg-opacity-50 z-40"></div>

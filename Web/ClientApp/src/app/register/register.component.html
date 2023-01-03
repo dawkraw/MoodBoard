@@ -1,0 +1,69 @@
+<div class="flex justify-center items-center px-4 sm:px-6 lg:px-8">
+  <div class="bg-zinc-700 rounded-md px-4 w-full max-w-md py-8">
+    <div>
+      <h2 class="text-center text-3xl font-bold tracking-tight text-zinc-200">Create your Account</h2>
+      <p class="mt-2 text-center text-sm text-zinc-300">
+        Or
+        <a class="font-medium text-zinc-400 hover:text-zinc-500" href="/login">Login</a>
+      </p>
+    </div>
+    <form #form="ngForm" (ngSubmit)="submitForm()" [formGroup]="registerForm" [hidden]="form.submitted" action="#"
+          class="mt-6 space-y-6" name="form">
+      <div *ngIf="registerForm.invalid && (registerForm.touched || registerForm.dirty)" class="text-sm">
+        <div *ngIf="username.errors?.['required'] && username.touched">Username is required.</div>
+        <div *ngIf="username.errors?.['minlength'] && username.touched">Username must be at least 3 characters in
+          length.
+        </div>
+        <div *ngIf="username.errors?.['maxlength'] && username.touched">Username must be at maximum 20 characters in
+          length.
+        </div>
+        <div *ngIf="password.errors?.['required'] && password.touched">Password is required.</div>
+        <div *ngIf="password.errors?.['minlength'] && password.touched">Password must be at least 6 characters in
+          length
+        </div>
+        <div *ngIf="password.errors?.['pattern'] && password.touched">Password must contain at least one: uppercase
+          letter, lowercase letter, number and special character
+        </div>
+        <div *ngIf="confirm_password.errors?.['isEqual'] && confirm_password.touched">Please enter the same password in
+          both password fields.
+        </div>
+      </div>
+      <div class="rounded-md">
+        <div>
+          <label class="sr-only" for="username">Username</label>
+          <input autocomplete="username" class="mood-input" formControlName="username" id="username" name="username"
+                 placeholder="Username" type="text">
+        </div>
+        <div class="mt-3">
+          <label class="sr-only" for="password">Password</label>
+          <input autocomplete="current-password" class="mood-input" formControlName="password" id="password"
+                 name="password" placeholder="Password" type="password">
+        </div>
+        <div class="mt-3">
+          <label class="sr-only" for="confirm_password">Confirm Password</label>
+          <input autocomplete="current-password" class="mood-input" formControlName="confirm_password" id="confirm_password"
+                 name="confirm_password" placeholder="Confirm Password" type="password">
+        </div>
+      </div>
+
+      <div>
+        <button class="mood-button bg-sky-800 hover:bg-sky-700 focus:bg-sky-700" type="submit">
+          Create an account
+        </button>
+      </div>
+    </form>
+    <div *ngIf="isRegisterSuccess == true && form.submitted" class="bg-green-400 result-box">
+      <h1 class="text-lg font-bold">Congratulations!</h1>
+      <p class="text-sm">Your account has been created!</p>
+      <p class="text-sm">You can now login <a class="text-zinc-500" href="/">here</a></p>
+    </div>
+    <div *ngIf="isRegisterSuccess == false && form.submitted" class="bg-red-400 result-box">
+      <h1 class="text-lg font-bold">Your account could not be created!</h1>
+      <p *ngFor="let error of this.registerErrors" class="text-sm">{{error}}</p>
+      <p class="text-sm">Please try again later!</p>
+    </div>
+    <div *ngIf="isRegisterSuccess == null && form.submitted" class="bg-zinc-400 result-box">
+      <h1 class="text-lg font-bold">Please wait, your account is being created.</h1>
+    </div>
+  </div>
+</div>

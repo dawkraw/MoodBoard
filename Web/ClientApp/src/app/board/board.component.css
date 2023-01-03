@@ -1,0 +1,3 @@
+.mood-board-button {
+  @apply flex items-center px-4 py-2 rounded focus:outline-none focus:ring focus:ring-opacity-80
+}

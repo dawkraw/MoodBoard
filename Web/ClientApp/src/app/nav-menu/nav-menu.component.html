@@ -1,0 +1,31 @@
+<header class="bg-zinc-700 flex justify-between text-white p-4">
+  <a class="text-lg font-bold text-white self-center" routerLink="/">MoodBoard </a>
+
+  <div *ngIf="isLoggedIn" class="relative mt-4 md:mt-0">
+    <button (click)="searchNavigate()" class="absolute inset-y-0 left-0 flex items-center pl-3" title="Search">
+      <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24">
+        <path
+          d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      </svg>
+    </button>
+    <input (keyup.enter)="searchNavigate()" [(ngModel)]="searchInput"
+           class="w-full py-2 pl-10 text-sm pr-4 text-zinc-300 placeholder-zinc-300 bg-zinc-800 border rounded focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
+           placeholder="Search"
+           type="text">
+  </div>
+  <div *ngIf="isLoggedIn" class="bg-zinc-800 py-2 px-4 rounded"><span
+    class="text-white inline-flex items-center leading-none text-sm">
+    {{this.username}}
+    <button (click)="logout()" title="Logout">
+    <svg class="text-red-400 ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+    </svg>
+        </button>
+</span>
+  </div>
+</header>
