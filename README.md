@@ -18,6 +18,7 @@ MoodBoard is a web application where users can collaborate to create [mood board
 - AutoMapper
 - FluentValidation
 - MediatR
+- CQRS
 - ImageKit
 - SQL Server
 - Angular 14
