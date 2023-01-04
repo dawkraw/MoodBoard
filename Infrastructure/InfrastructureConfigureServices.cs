@@ -37,7 +37,7 @@ public static class InfrastructureConfigureServices
 
         services.AddIdentity<MoodBoardUser, IdentityRole>()
             .AddEntityFrameworkStores<MoodBoardDbContext>();
-        var jwtSettings = configuration.GetSection("JwtSettings");
+        var jwtSettings = configuration.GetSection("JWTSettings");
 
         services.AddTransient<IUsersService, UsersService>();
         services.AddTransient<IImageProcessingService, ImageProcessingService>();
@@ -57,7 +57,7 @@ public static class InfrastructureConfigureServices
                 ValidIssuer = jwtSettings["Issuer"],
                 ValidAudience = jwtSettings["Audience"],
                 IssuerSigningKey =
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.GetSection("securityKey").Value))
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.GetSection("SecurityKey").Value))
             };
             options.Events = new JwtBearerEvents();
             options.Events.OnMessageReceived += context =>
