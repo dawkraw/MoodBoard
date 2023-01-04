@@ -29,6 +29,6 @@ MoodBoard is a web application where users can collaborate to create [mood board
 - Create an [ImageKit](https://imagekit.io/) account, retrieve the needed public key, private key and URL endpoint.
 - Create SQL Server database.
 - Clone the repo.
-- Fill in the needed API keys, JWT settings, and database connection string in appsettings.json
+- Fill in the needed API keys, JWT settings, and database connection string in *Web/appsettings.json*
 - Run ```dotnet restore``` in order to get and resolve any problems with NuGet packages.
 - Run ```dotnet ef database update --startup-project Web --project Infrastructure``` in order to create a database with the help of EF.
