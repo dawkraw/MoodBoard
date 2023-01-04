@@ -88,6 +88,7 @@ public class UsersService : IUsersService
 
     private async Task<string> GenerateTokenAsync(MoodBoardUser user)
     {
+        if (_jwtSettings.SecurityKey is null) throw new InvalidDataException("SecurityKey in JWTSettings cannot be null!");
         var securityKey = Encoding.UTF8.GetBytes(_jwtSettings.SecurityKey);
         var secret = new SymmetricSecurityKey(securityKey);
         var signingCredentials = new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);

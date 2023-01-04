@@ -5,11 +5,11 @@ namespace Infrastructure.Persistence.SettingsModels;
 public class ImageKitSettings
 {
     [Required]
-    public string PublicKey { get; set; }
+    public string? PublicKey { get; set; }
     
     [Required]
-    public string PrivateKey { get; set; }
+    public string? PrivateKey { get; set; }
     
     [Required]
-    public string UrlEndPoint { get; set; }
+    public string? UrlEndPoint { get; set; }
 }
